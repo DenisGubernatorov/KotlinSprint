@@ -18,6 +18,6 @@ fun main() {
     val arriveHours = (arriveHoursTmp + possibleHours) % HOURS_PER_DAY //  Учитываем смену суток.
     val arriveMinutes = arriveMinutesTmp % MINUTES_PER_HOUR
 
-    println("$arriveHours:$arriveMinutes")
+    println(String.format("%02d:%02d",arriveHours,arriveMinutes))
 
 }
