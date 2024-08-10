@@ -1,9 +1,9 @@
 package lesson5
 
-const val MESSAGE = "Введите %s число в диапазоне от 1 до 42: "
-const val VICTORY = "Поздравляем Вы выиграли главный приз!"
-const val PARTIAL_VICTORY = "Вы выиграли утешительный приз!"
-const val LOOSE = "Неудача!"
+private const val MESSAGE = "Введите %s число в диапазоне от 1 до 42: "
+private const val VICTORY = "Поздравляем Вы выиграли главный приз!"
+private const val PARTIAL_VICTORY = "Вы выиграли утешительный приз!"
+private const val LOOSE = "Неудача!"
 
 fun main() {
     val firstNumber = 15

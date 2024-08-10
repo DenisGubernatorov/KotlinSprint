@@ -2,13 +2,13 @@ package lesson5
 
 import kotlin.random.Random
 
-const val MESSAGE = "Введите %s число в диапазоне от 1 до 42: "
-const val VICTORY = "Вы угадали все числа! ДЖЕКПОТ!"
-const val PARTIAL_VICTORY_TWO = "Вы угадали 2 числа и выиграли крупный приз!"
-const val PARTIAL_VICTORY_ONE = "Вы угадали одно число и выиграли утешительный приз!"
-const val LOOSE = "К сожаление вы не угадали ни одного числа"
-const val RANGE_FROM = 1
-const val RANG_TO = 43
+private const val MESSAGE = "Введите %s число в диапазоне от 1 до 42: "
+private const val VICTORY = "Вы угадали все числа! ДЖЕКПОТ!"
+private const val PARTIAL_VICTORY_TWO = "Вы угадали 2 числа и выиграли крупный приз!"
+private const val PARTIAL_VICTORY_ONE = "Вы угадали одно число и выиграли утешительный приз!"
+private const val LOOSE = "К сожаление вы не угадали ни одного числа"
+private const val RANGE_FROM = 1
+private const val RANG_TO = 43
 
 fun main() {
     val numbers = setOf(getRandom(), getRandom(), getRandom())
