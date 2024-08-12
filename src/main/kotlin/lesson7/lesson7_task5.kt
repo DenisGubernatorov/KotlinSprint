@@ -1,9 +1,10 @@
 package lesson7
 
 const val MIN_PASSWORD_LENGTH = 6
-val range = ('A'..'Z').toList() + ('a'..'z').toList() + (0..9).toList()
 
 fun main() {
+    val range = ('A'..'Z').toList() + ('a'..'z').toList() + (0..9).toList()
+
     var passwordLength: Int
     while (true) {
         print("Введите длину пароля (6 символов минимум)")
@@ -12,6 +13,6 @@ fun main() {
     }
 
     var generatedPassword = ""
-    for (i in 0..passwordLength) generatedPassword += range.random()
+    for (i in 0 until passwordLength) generatedPassword += range.random()
     println(generatedPassword)
 }
