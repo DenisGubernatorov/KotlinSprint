@@ -3,8 +3,7 @@ package lesson7
 const val MIN_PASSWORD_LENGTH = 6
 
 fun main() {
-    val range = ('A'..'Z').toList() + ('a'..'z').toList() + (0..9).toList()
-
+    val range = ('A'..'Z') + ('a'..'z') + ('1'..'9')
     var passwordLength: Int
     while (true) {
         print("Введите длину пароля (6 символов минимум)")
@@ -12,7 +11,9 @@ fun main() {
         if (passwordLength < MIN_PASSWORD_LENGTH) println("Длина пароля не должна быть меньше 6 символов") else break
     }
 
-    var generatedPassword = ""
-    for (i in 0 until passwordLength) generatedPassword += range.random()
-    println(generatedPassword)
+    var tmpPassword = ""
+    for (i in 0 until passwordLength) tmpPassword += range.random()
+    val password = tmpPassword.toMutableList().apply { shuffle() }.joinToString("")
+
+    println(password)
 }
