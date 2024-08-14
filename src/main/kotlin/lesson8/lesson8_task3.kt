@@ -6,15 +6,11 @@ fun main() {
     print("Введите название ингредиента: ")
     val ingredient = readln()
 
-    if (marvinFavoriteDish.any {
-            it.equals(
-                ingredient,
-                ignoreCase = true,
-            )
-        }
-    ) {
+    if (ingredient in marvinFavoriteDish.map { it.lowercase() }) {
         println("Ингредиент [$ingredient] в рецепте есть")
     } else {
-        println("Такого ингредиента в рецепте нет")
+        println(
+            "Такого ингредиента в рецепте нет",
+        )
     }
 }
