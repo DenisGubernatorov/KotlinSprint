@@ -7,13 +7,14 @@ fun main() {
     1 - молоко
     2 - сливочное масло
      */
-    val servings = mutableListOf(2, 50, 15)
+    val defaultServingIngredientsVal = mutableListOf(2, 50, 15)
 
     print("Введите количество порций: ")
     val servingCount = readln().toInt()
-    servings.replaceAll { it * servingCount }
+    val ingredientsTotalVal = defaultServingIngredientsVal.map { it * servingCount }
 
     println(
-        "На $servingCount порций вам понадобится: Яиц – ${servings[0]}, молока – ${servings[1]}, сливочного масла – ${servings[2]}",
+        "На $servingCount порций вам понадобится: Яиц – ${ingredientsTotalVal[0]}," +
+            " молока – ${ingredientsTotalVal[1]}, сливочного масла – ${ingredientsTotalVal[2]}",
     )
 }
