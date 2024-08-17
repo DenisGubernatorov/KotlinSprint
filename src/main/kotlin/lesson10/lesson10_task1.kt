@@ -6,9 +6,18 @@ private const val MACHINE = "машин"
 private const val HUMANITY = "человечества"
 
 fun main() {
-    val machineScore = showAndGetScore(MACHINE)
-    val humanityScore = showAndGetScore(HUMANITY)
+    val machineScore = getScore()
+    showTurnInfo(MACHINE, machineScore)
+    val humanityScore = getScore()
+    showTurnInfo(HUMANITY, humanityScore)
     println(getWinner(machineScore, humanityScore))
+}
+
+private fun showTurnInfo(
+    player: String,
+    score: Int,
+) {
+    println("Ход $player. Выпало: $score")
 }
 
 private fun getWinner(
@@ -20,8 +29,4 @@ private fun getWinner(
     else -> "Победило человечество"
 }
 
-private fun showAndGetScore(player: String): Int {
-    val score = Random.nextInt(1, 7)
-    println("Ход $player. Выпало: $score")
-    return score
-}
+private fun getScore() = Random.nextInt(1, 7)
