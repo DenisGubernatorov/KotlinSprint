@@ -1,6 +1,6 @@
 package lesson13
 
-class PhoneDirectory(
+class PhoneDirectoryThree(
     val name: String,
     val phone: Long,
     val companyName: String?,
@@ -13,27 +13,27 @@ class PhoneDirectory(
 fun main() {
     val phonesList =
         mutableListOf(
-            PhoneDirectory(
+            PhoneDirectoryThree(
                 "John1",
                 89123456789,
                 null,
             ),
-            PhoneDirectory(
+            PhoneDirectoryThree(
                 "John2",
                 89123456799,
                 null,
             ),
-            PhoneDirectory(
+            PhoneDirectoryThree(
                 "John3",
                 89123456999,
                 "null",
             ),
-            PhoneDirectory(
+            PhoneDirectoryThree(
                 "John4",
                 89123459999,
                 "companyName1",
             ),
-            PhoneDirectory(
+            PhoneDirectoryThree(
                 "John5",
                 89123499999,
                 "companyName2",
