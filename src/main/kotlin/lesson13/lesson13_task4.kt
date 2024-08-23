@@ -1,9 +1,9 @@
 package lesson13
 
 class PhoneDirectoryFour(
-private val name: String,
-private val phone: Long,
-private val companyName: String?,
+    private val name: String,
+    private val phone: Long,
+    private val companyName: String?,
 ) {
     fun showNumberInfo() {
         println("Имя: $name \nНомер: $phone\nКомпания: ${companyName ?: "<не указано>"}")
