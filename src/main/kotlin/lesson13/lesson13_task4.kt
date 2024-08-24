@@ -19,8 +19,7 @@ fun main() {
         if (phone != null) {
             val name = getInputVal("имя")
             val companyName = getInputVal("имя компании").takeIf { it.isNotBlank() }
-            // Странно что тут идешка ругается на "Smart cast to kotlin.Long (for null call)" для phone. Хотя здесь
-            // гарантированно не null. Почему так?
+
             phoneList.add(PhoneDirectoryFour(name, phone, companyName))
         } else {
             println("Не задан или не правильный формат номера телефона. Невозможно добавить в справочник")
