@@ -1,42 +1,44 @@
 package lesson15
 
 interface Fly {
-    val name: String
-
     fun doFly() {
-        println("${this.name} летит")
+        println("летит")
     }
 }
 
 interface Swim {
-    val name: String
-
     fun doSwim() {
-        println("${this.name} плывет")
+        println("плывет")
     }
 }
 
-class Carp(
-    override val name: String,
-) : Swim
+class Carp : Swim {
+    val className = "Карп"
+}
 
-class Seagull(
-    override val name: String,
-) : Fly
+class Seagull : Fly {
+    val className = "Чайка"
+}
 
-class Duck(
-    override val name: String,
-) : Swim,
-    Fly
+class Duck :
+    Swim,
+    Fly {
+    val className = "Утка"
+}
 
 fun main() {
-    val carp = Carp("Карп")
+    val carp = Carp()
+    print("${carp.className} ")
     carp.doSwim()
 
-    val seagull = Seagull("Чайка")
+    val seagull = Seagull()
+
+    print("${seagull.className} ")
     seagull.doFly()
 
-    val duck = Duck("Утка")
-    duck.doFly()
+    val duck = Duck()
+    print("${duck.className} ")
     duck.doSwim()
+    print("${duck.className} ")
+    duck.doFly()
 }
