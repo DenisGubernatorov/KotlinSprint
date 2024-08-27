@@ -1,9 +1,7 @@
 package lesson15
 
-abstract class WeatherStationStats : DataSend
-
-interface DataSend {
-    fun doSendData()
+abstract class WeatherStationStats {
+    abstract fun doSendData()
 }
 
 class Temperature : WeatherStationStats() {
