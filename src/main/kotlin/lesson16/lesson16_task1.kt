@@ -1,9 +1,7 @@
 package lesson16
 
-import kotlin.random.Random
-
 class PlayingDice {
-    private var diceRollResult = Random.nextInt(1, 7)
+    private var diceRollResult = (1..6).random()
 
     fun showDiceRollResult() {
         println("Выпало: $diceRollResult")
