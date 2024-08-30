@@ -7,15 +7,21 @@ interface Search {
     )
 }
 
-class Accessories(
+abstract class Item(
     val name: String,
     val storageCount: Int,
 )
 
+class Accessories(
+    name: String,
+    storageCount: Int,
+) : Item(name, storageCount)
+
 class Instrument(
-    val name: String,
-    val storageCount: Int,
-) : Search {
+    name: String,
+    storageCount: Int,
+) : Item(name, storageCount),
+    Search {
     override fun doSearch(
         instrument: Instrument,
         accessories: Accessories,
