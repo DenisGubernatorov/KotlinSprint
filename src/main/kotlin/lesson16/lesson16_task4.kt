@@ -8,14 +8,15 @@ enum class Stage {
     RETURNED,
 }
 
-class Order {
-    private val orderNum = (1..10_000).random()
+class Order(
+    private val orderNum: Int,
+) {
     private var readyStage = Stage.CONFIRMED
 
     fun requestToChangeStage(stage: Stage): Boolean = acceptRequestByManager(stage)
 
     fun getStage() {
-        println(readyStage)
+        println("Заказ $orderNum на стадии $readyStage")
     }
 
     /**
@@ -29,7 +30,7 @@ class Order {
 }
 
 fun main() {
-    val order = Order()
+    val order = Order(45)
     order.getStage()
     order.requestToChangeStage(Stage.PROCESSING)
     order.getStage()
