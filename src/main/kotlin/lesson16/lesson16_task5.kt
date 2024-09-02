@@ -1,18 +1,23 @@
 package lesson16
 
+import kotlin.math.absoluteValue
+
 abstract class Character protected constructor(
     protected var name: String,
     protected var health: Int,
     protected var damage: Int,
     protected var healVal: Int,
+    protected var canHeal: Boolean,
 ) {
-    protected abstract fun isDead(param: Int): Boolean
+    open fun checkIsDead(param: Int): Boolean = isDead(param)
+
+    private fun isDead(param: Int): Boolean = param <= 0
 }
 
 interface BaseCharacterActions {
     fun heal()
 
-    fun getDamage(getDamage: Int): Boolean
+    fun getDamage(getDamage: Int): Int
 }
 
 class Warrior(
@@ -20,10 +25,8 @@ class Warrior(
     health: Int,
     damage: Int,
     healVal: Int,
-) : Character(name, health, damage, healVal),
+) : Character(name, health, damage, healVal, true),
     BaseCharacterActions {
-    private var canHeal: Boolean = true
-
     override fun heal() {
         if (canHeal) {
             println("$name  восстанавливает $healVal ед. здоровья")
@@ -34,39 +37,37 @@ class Warrior(
     /**
      * Количество полученного дамага от другого персонажа
      */
-    override fun getDamage(getDamage: Int): Boolean {
+    override fun getDamage(getDamage: Int): Int {
         println("$name  получает  $getDamage ед. урона")
-        health -= getDamage
-        return isDead(health)
+        health -= getDamage.absoluteValue
+        return health
     }
 
-    override fun isDead(param: Int): Boolean =
-
-        when {
-            health <= 0 -> {
+    override fun checkIsDead(param: Int): Boolean {
+        return when {
+            super.checkIsDead(param) -> {
                 canHeal = false
                 damage = 0
                 health = 0
                 println("$name ++RIP++")
-                true
+                return true
             }
 
-            else -> {
-                false
-            }
+            else -> false
         }
+    }
 }
 
 fun main() {
     val warrior = Warrior("TaNGaR", 100, 60, 20)
-
+    var healthVal: Int
     while (true) {
-        if (warrior.getDamage(40)) break
-
+        healthVal = warrior.getDamage(40)
+        if (warrior.checkIsDead(healthVal)) break
         warrior.heal()
-
-        if (warrior.getDamage(70)) break
-
-        if (warrior.getDamage(30)) break
+        healthVal = warrior.getDamage(70)
+        if (warrior.checkIsDead(healthVal)) break
+        healthVal = warrior.getDamage(30)
+        if (warrior.checkIsDead(healthVal)) break
     }
 }
