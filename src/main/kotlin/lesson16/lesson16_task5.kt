@@ -17,7 +17,7 @@ abstract class Character protected constructor(
 interface BaseCharacterActions {
     fun heal()
 
-    fun getDamage(getDamage: Int): Int
+    fun getDamage(getDamage: Int): Boolean
 }
 
 class Warrior(
@@ -37,10 +37,11 @@ class Warrior(
     /**
      * Количество полученного дамага от другого персонажа
      */
-    override fun getDamage(getDamage: Int): Int {
+    override fun getDamage(getDamage: Int): Boolean {
         println("$name  получает  $getDamage ед. урона")
         health -= getDamage.absoluteValue
-        return health
+
+        return checkIsDead(health)
     }
 
     override fun checkIsDead(param: Int): Boolean {
@@ -60,14 +61,12 @@ class Warrior(
 
 fun main() {
     val warrior = Warrior("TaNGaR", 100, 60, 20)
-    var healthVal: Int
+
     while (true) {
-        healthVal = warrior.getDamage(40)
-        if (warrior.checkIsDead(healthVal)) break
+        if (warrior.getDamage(40)) break
         warrior.heal()
-        healthVal = warrior.getDamage(70)
-        if (warrior.checkIsDead(healthVal)) break
-        healthVal = warrior.getDamage(30)
-        if (warrior.checkIsDead(healthVal)) break
+        if (warrior.getDamage(70)) break
+
+        if (warrior.getDamage(30)) break
     }
 }
