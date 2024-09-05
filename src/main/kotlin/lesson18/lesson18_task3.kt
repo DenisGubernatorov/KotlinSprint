@@ -1,13 +1,17 @@
 package lesson18
 
-open class TamagochiAnimal(
+abstract class TamagochiAnimal(
     open val name: String,
 ) {
     open fun eat() {}
+
+    fun sleep() {
+        println("$name -> спит")
+    }
 }
 
 class Fox(
-    override val name: String,
+    name: String,
 ) : TamagochiAnimal(name) {
     override fun eat() {
         println("$name -> ест ягоды")
@@ -15,7 +19,7 @@ class Fox(
 }
 
 class Dog(
-    override val name: String,
+    name: String,
 ) : TamagochiAnimal(name) {
     override fun eat() {
         println("$name -> ест кости")
@@ -23,7 +27,7 @@ class Dog(
 }
 
 class Cat(
-    override val name: String,
+    name: String,
 ) : TamagochiAnimal(name) {
     override fun eat() {
         println("$name -> ест рыбу")
@@ -32,5 +36,8 @@ class Cat(
 
 fun main() {
     val animals: MutableList<TamagochiAnimal> = mutableListOf(Fox("Foxy"), Dog("Jack"), Cat("Beast"))
-    animals.forEach { it.eat() }
+    animals.forEach {
+        it.eat()
+        it.sleep()
+    }
 }
