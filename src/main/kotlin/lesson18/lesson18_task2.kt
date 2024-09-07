@@ -21,6 +21,6 @@ class EightEdgeDice : PlayingDiceL18() {
 }
 
 fun main() {
-    val dices = mutableListOf(FourEdgeDice(), SixEdgeDice(), EightEdgeDice())
+    val dices: MutableList<PlayingDiceL18> = mutableListOf(FourEdgeDice(), SixEdgeDice(), EightEdgeDice())
     dices.forEach { it.getThrowResult() }
 }
