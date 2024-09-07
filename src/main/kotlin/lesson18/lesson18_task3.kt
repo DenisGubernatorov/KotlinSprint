@@ -3,7 +3,7 @@ package lesson18
 abstract class TamagochiAnimal(
     open val name: String,
 ) {
-    open fun eat() {}
+    abstract fun eat()
 
     fun sleep() {
         println("$name -> спит")
