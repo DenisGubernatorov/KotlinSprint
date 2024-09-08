@@ -12,7 +12,7 @@ enum class Fishes(
 fun main() {
     println(
         "Можно добавить:\n${
-            Fishes.values().joinToString(",\n", transform = Fishes::description)
+            Fishes.entries.joinToString(",\n", transform = Fishes::description)
         }",
     )
 }
