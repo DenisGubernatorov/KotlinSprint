@@ -7,11 +7,11 @@ class Starship(
         // TODO Необходима информация для реализации необходимой логики
     }
 
-    fun landing() {
+    fun land() {
         println("$starshipName  приземляется")
     }
 
-    fun meteorDefence() {
+    fun defendFromMeteors() {
         TODO("Реализовать логику защиты от метеоритов")
     }
 }
@@ -19,6 +19,6 @@ class Starship(
 fun main() {
     val starship = Starship("Авангард")
     starship.launch()
-    starship.landing()
-    starship.meteorDefence()
+    starship.land()
+    starship.defendFromMeteors()
 }
