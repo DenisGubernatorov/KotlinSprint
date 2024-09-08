@@ -6,7 +6,7 @@ enum class Category {
     OTHER,
     ;
 
-    fun description(): String =
+    fun getDescription(): String =
         when (this) {
             CLOTHES -> "Одежда"
             STATIONERY -> "Канцелярские товары"
@@ -20,15 +20,15 @@ class Item19(
 ) {
     private val id = this.hashCode()
 
-    fun itemDescription() {
-        println("Название: $name\nИД:$id\nКатегория: ${category.description()}")
+    fun printItemInfo() {
+        println("Название: $name\nИД:$id\nКатегория: ${category.getDescription()}")
     }
 }
 
 fun main() {
-    Item19("Item1", Category.CLOTHES).itemDescription()
+    Item19("Item1", Category.CLOTHES).printItemInfo()
     println()
-    Item19("Item2", Category.STATIONERY).itemDescription()
+    Item19("Item2", Category.STATIONERY).printItemInfo()
     println()
-    Item19("Item3", Category.OTHER).itemDescription()
+    Item19("Item3", Category.OTHER).printItemInfo()
 }
