@@ -8,19 +8,22 @@ enum class Ammunition(
     RED(20),
     ;
 
-    fun getDamage(ammunition: Ammunition): Int = ammunition.damage
+    fun getDamage(): Int = this.damage
 }
 
-class Tank {
-    private var damage = 0
-
+class Tank(
+    private var ammunitionType: Ammunition? = null,
+) {
     fun loadAmmo(ammunition: Ammunition) {
-        damage = ammunition.getDamage(ammunition)
+        ammunitionType = ammunition
     }
 
-    fun shoot() {
-        println("Танк стреляет снарядом с уроном $damage")
-    }
+    fun shoot() =
+        println(
+            ammunitionType?.let {
+                "Танк стреляет снарядом с уроном ${it.getDamage()}"
+            } ?: "Осечка",
+        )
 }
 
 fun main() {
@@ -29,4 +32,6 @@ fun main() {
         tank.loadAmmo(it)
         tank.shoot()
     }
+    val tank1 = Tank()
+    tank1.shoot()
 }
