@@ -1,7 +1,8 @@
 package lesson20
 
 class InverterRobot {
-    private var inverter: (() -> String)? = null
+    private var inverter: ((String) -> String) =
+        { it }
     private val phrases =
         listOf(
             "Жизнь! Не говорите мне о жизни...",
@@ -12,12 +13,12 @@ class InverterRobot {
         )
 
     fun say() {
-        println(inverter?.invoke() ?: phrases.random())
+        println(inverter(phrases.random()))
     }
 
     fun setModifier() {
         inverter = {
-            phrases.random().reversed()
+            it.reversed()
         }
     }
 }
