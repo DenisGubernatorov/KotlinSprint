@@ -8,6 +8,6 @@ fun main() {
             "Skill_3" to 70,
         )
 
-    fun MutableMap<String, Int>.maxCategory(): String? = maxByOrNull { it.value }?.key
+    fun Map<String, Int>.maxCategory(): String? = maxByOrNull { it.value }?.key
     println(skills.maxCategory())
 }
